@@ -79,7 +79,16 @@ func (d *Local) Init(ctx context.Context) error {
 	} else {
 		d.thumbTokenBucket = NewStaticTokenBucketWithMigration(d.thumbTokenBucket, d.thumbConcurrency)
 	}
+	d.RefreshSpace()
 	return nil
+}
+
+func (d *Local) RefreshSpace() {
+	d.Space = getDiskSpace(d.GetRootPath())
+}
+
+func (d *Local) GetSpace() model.Space {
+	return d.Space
 }
 
 func (d *Local) Drop(ctx context.Context) error {

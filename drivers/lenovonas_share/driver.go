@@ -41,7 +41,16 @@ func (d *LenovoNasShare) Init(ctx context.Context) error {
 		return err
 	}
 	d.stoken = utils.Json.Get(resp, "data", "stoken").ToString()
+	d.SetSpace(d.GetSpace())
 	return nil
+}
+
+func (d *LenovoNasShare) GetSpace() model.Space {
+	return model.Space{}
+}
+
+func (d *LenovoNasShare) SetSpace(space model.Space) {
+
 }
 
 func (d *LenovoNasShare) Drop(ctx context.Context) error {

@@ -36,7 +36,16 @@ func (d *Onedrive) Init(ctx context.Context) error {
 	if d.ChunkSize < 1 {
 		d.ChunkSize = 5
 	}
+	d.RefreshSpace()
 	return d.refreshToken()
+}
+
+func (d *Onedrive) RefreshSpace() {
+
+}
+
+func (d *Onedrive) GetSpace() model.Space {
+	return d.Space
 }
 
 func (d *Onedrive) Drop(ctx context.Context) error {

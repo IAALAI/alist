@@ -34,6 +34,10 @@ func (d *Pan115Share) Init(ctx context.Context) error {
 	return d.login()
 }
 
+func (d *Pan115Share) RefreshSpace() {
+
+}
+
 func (d *Pan115Share) WaitLimit(ctx context.Context) error {
 	if d.limiter != nil {
 		return d.limiter.Wait(ctx)

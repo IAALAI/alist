@@ -39,7 +39,7 @@ func (d *Urls) Drop(ctx context.Context) error {
 	return nil
 }
 
-func (d *Urls) Get(ctx context.Context, path string) (model.Obj, error) {
+ctx context.Context, path string) (model.Obj, error) {
 	node := GetNodeFromRootByPath(d.root, path)
 	return nodeToObj(node, path)
 }

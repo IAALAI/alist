@@ -18,6 +18,8 @@ type Meta interface {
 	// GetStorage just get raw storage, no need to implement, because model.Storage have implemented
 	GetStorage() *model.Storage
 	SetStorage(model.Storage)
+	RefreshSpace()
+	GetSpace() model.Space
 	// GetAddition Additional is used for unmarshal of JSON, so need return pointer
 	GetAddition() Additional
 	// Init If already initialized, drop first

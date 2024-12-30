@@ -35,7 +35,20 @@ func (d *Pan115) Init(ctx context.Context) error {
 	if d.LimitRate > 0 {
 		d.limiter = rate.NewLimiter(rate.Limit(d.LimitRate), 1)
 	}
+
 	return d.login()
+}
+
+func (d *Pan115) RefreshSpace() {
+	result := driver115.SpaceResponse{}
+	req := d.client.NewRequest().
+		SetResult(&result).
+		ForceContentType("application/json;charset=UTF-8")
+	req.Get(driver115.)
+}
+
+func (d *Pan115) GetSpace() model.Space {
+	return d.Space
 }
 
 func (d *Pan115) WaitLimit(ctx context.Context) error {

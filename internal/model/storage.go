@@ -16,6 +16,7 @@ type Storage struct {
 	EnableSign      bool      `json:"enable_sign"`
 	Sort
 	Proxy
+	Space
 }
 
 type Sort struct {
@@ -29,6 +30,11 @@ type Proxy struct {
 	WebdavPolicy string `json:"webdav_policy"`
 	ProxyRange   bool   `json:"proxy_range"`
 	DownProxyUrl string `json:"down_proxy_url"`
+}
+
+type Space struct {
+	Usage int64 `json:"usage"`
+	Total int64 `json:"total"`
 }
 
 func (s *Storage) GetStorage() *Storage {
